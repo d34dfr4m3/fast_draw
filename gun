@@ -1,0 +1,10 @@
+function nse(){
+	SCRIPT_SEARCH=$1 
+	IP=$2
+	PORT=$3
+	for script in $(ls  /usr/share/nmap/scripts | grep -i $SCRIPT_SEARCH)
+	do
+	echo "sudo nmap -p $PORT --script=$script -oN nmap_nse_$script $IP"
+	done
+
+}
