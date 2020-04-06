@@ -8,3 +8,8 @@ function nse(){
 	done
 
 }
+
+function scan4me(){
+	sudo nmap -sS -T 4 -sV -sC -A -oN nmap_tcp_scan $1 
+	sudo nmap -sU -T 4 -oN nmap_udp_scan $1 
+}
