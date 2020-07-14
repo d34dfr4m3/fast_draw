@@ -1,15 +1,15 @@
 function nse(){
-	SCRIPT_SEARCH=$1 
-	IP=$2
-	PORT=$3
-	for script in $(ls  /usr/share/nmap/scripts | grep -i $SCRIPT_SEARCH)
-	do
-	echo "sudo nmap -p $PORT --script=$script -oN nmap_nse_$script $IP"
-	done
+        SCRIPT_SEARCH=$1 
+        IP=$2
+        PORT=$3
+        for script in $(ls  /usr/share/nmap/scripts | grep -i $SCRIPT_SEARCH)
+        do
+        echo "sudo nmap -p $PORT --script=$script -oN nmap_nse_$script $IP"
+        done
 
 }
 
 function scan4me(){
-	sudo nmap -sS -T 4 -sV -sC -A -oN nmap_tcp_scan $1 
-	sudo nmap -sU -T 4 -oN nmap_udp_scan $1 
+        sudo nmap -Pn -sS -T 4 -sV -sC -A -oN nmap_tcp_scan $1 
+        sudo nmap -Pn -sU -T 4 -oN nmap_udp_scan $1 
 }
