@@ -13,6 +13,34 @@ You can automate this load using the ~/.bashrc file to load every time you open 
 
 ## How use: 
 ### Generating payloads: 
+## Available payloads:
+```
+[-] Payloads list
+payloads:
+bash  java  netcat  perl  php  python  ruby
+
+payloads/bash:
+bash_dev_tcp_reverse_tcp
+
+payloads/java:
+reverse_tcp
+
+payloads/netcat:
+fdesc_reverse_tcp  reverse_tcp
+
+payloads/perl:
+reverse_tcp
+
+payloads/php:
+reverse_tcp  system_web_shell
+
+payloads/python:
+reverse_tcp
+
+payloads/ruby:
+reverse_tcp
+
+```
 #### Listing
 ```
 $ genweapon help
