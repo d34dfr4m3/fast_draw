@@ -3,6 +3,14 @@
 Shellscripts functions to automate stuff in hacking
 
 
+## How load the functions:
+To load the functions, you just need to load the bash file to your environment: 
+```
+. gun
+```
+You can automate this load using the ~/.bashrc file to load every time you open a shell. 
+
+
 ## How use: 
 ### Generating payloads: 
 #### Listing
