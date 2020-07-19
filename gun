@@ -31,3 +31,28 @@ function weblinux(){
 fi
 }
 
+function genweapon(){
+WORKDIR=/home/operador/scripts/shellscript/fast_draw
+cd $WORKDIR
+
+case $1 in 
+  'list'|'l'|'ls')
+	  echo "[-] Payloads list" 
+	  ls -R payloads*
+	  ;;
+  'gen'|'generate')
+	echo "[-] Generating the payload"
+	PAYLOAD=$2
+	LHOST=$3 
+	LPORT=$4 
+	OUTPUT=$5
+	cat $PAYLOAD | sed "s/LHOST/$LHOST/" | sed "s/LPORT/$LPORT/" > $OUTPUT
+	echo "[-] Payload saved at $OUTPUT"
+	;;
+    *) echo "[!] Help menu:" 
+       echo "$0 list -> List available payloads" 
+       echo "$0 generate PAYLOAD_PATH LHOST LPORT OUTPUT"
+       echo -e "\t Example: $0 generate payloads/python/reverse_tcp 127.0.0.1 443 /tmp/shell.py "
+   ;;
+    esac
+}
