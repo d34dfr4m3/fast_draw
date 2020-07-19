@@ -1,0 +1,5 @@
+alias goscp='cd /home/kali/OSCP/'
+alias gotools='cd /home/kali/OSCP/lab/pentest/tools'
+alias copy='xclip -selection clipboard'
+
+

